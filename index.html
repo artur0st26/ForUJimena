@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimena :3</title>
+
+    <link rel="stylesheet" href="assets/scss/app.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/plasticine/100/000000/like--v1.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="text" data-splitting="">Feliz Cumpleaños 22 Atrasado!!!</div>
+        <div class="presents">
+            <div class="present pink">
+                <div class="lid"></div>
+                <div class="box"></div>
+                <div class="bow"></div>
+                <div class="ribbon"></div>
+            </div>
+            <div class="present yellow">
+                <div class="lid"></div>
+                <div class="box"></div>
+                <div class="bow"></div>
+                <div class="ribbon"></div>
+            </div>
+            <div class="present purple">
+                <div class="lid"></div>
+                <div class="box"></div>
+                <div class="bow"></div>
+                <div class="ribbon"></div>
+            </div>
+        </div>
+        <br>
+        <div class="text" data-splitting="">Con Cariño y Disculpas</div>
+        <div class="text" data-splitting="">TQM Jimena!</div>
+        <h1 style="text-align: center; color: #ff87ab;">El Próximo Si Me Acuerdo</h1>
+        <div class="countdown-timer">
+            <ul>
+                <li>
+                    <span class="days"></span>
+                    <span>Días</span>
+                </li>
+                <li>
+                    <span class="hours"></span>
+                    <span>Horas</span>
+                </li>
+                <li>
+                    <span class="minutes"></span>
+                    <span>Minutos</span>
+                </li>
+                <li>
+                    <span class="seconds"></span>
+                    <span>Segundos</span>
+                </li>
+            </ul>
+            <p style="display: none;" class="coming-year"></p>
+        </div>
+    </div>
+
+    <script>
+        const comingYear = document.querySelector(".coming-year");
+        const birthDate = 17;
+        const birthMonth = 6;
+        const today = new Date();
+        var nextYear;
+        if (today.getMonth() + 1 > birthMonth || (today.getMonth() + 1 == birthMonth && today.getDate() + 1 > birthDate)) {
+            nextYear = new Date().getFullYear() + 1;
+        }
+        else {
+            nextYear = new Date().getFullYear();
+        }
+        comingYear.innerHTML = nextYear;
+        function countdown() {
+            const remaining = new Date(`${nextYear}-${birthMonth}-${birthDate} 00:00:00`) - new Date();
+            const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(remaining / (1000 * 60 * 60)) % 24;
+            const minutes = Math.floor(remaining / (1000 * 60)) % 60;
+            const seconds = Math.floor(remaining / 1000) % 60;
+            document.querySelector(".days").innerHTML = days;
+            document.querySelector(".hours").innerHTML = hours;
+            document.querySelector(".minutes").innerHTML = minutes;
+            document.querySelector(".seconds").innerHTML = seconds;
+        }
+        countdown()
+        setInterval(countdown, 1000);
+    </script>
+    <script src="assets/js/app.js"></script>
+    <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+</body>
+
+</html>
